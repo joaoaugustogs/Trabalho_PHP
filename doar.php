@@ -33,6 +33,27 @@
               <option>O+</option><option>O-</option>
             </select>
           </div>
+
+          <!-- Novos campos para agendamento -->
+          <div class="form-group">
+            <label for="data_agendamento">Data do Agendamento</label>
+            <input type="date" id="data_agendamento" name="data_agendamento" required>
+          </div>
+
+          <div class="form-group">
+            <label for="hora_agendamento">Hora do Agendamento</label>
+            <select id="hora_agendamento" name="hora_agendamento" required>
+              <option value="">Selecione...</option>
+              <option>08:00</option>
+              <option>09:00</option>
+              <option>10:00</option>
+              <option>11:00</option>
+              <option>14:00</option>
+              <option>15:00</option>
+              <option>16:00</option>
+            </select>
+          </div>
+
           <button type="submit" class="submit-btn">Enviar</button>
         </form>
         <a href="index.php" style="display:block;text-align:center;margin-top:15px;">← Voltar</a>

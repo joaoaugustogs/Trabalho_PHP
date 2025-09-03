@@ -12,55 +12,47 @@ if (file_exists($file)) {
   <meta charset="UTF-8">
   <title>Lista de Doadores</title>
   <link rel="stylesheet" href="style.css">
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #fff;
-    color: #333;
-    margin: 0;
-    padding: 0;
-  }
-
-  table {
-    width: 90%;
-    margin: 30px auto;
-    border-collapse: collapse;
-    background: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
-
-  th, td {
-    padding: 12px;
-    border: 1px solid #ccc;
-    text-align: left;
-    color: #333; /* <-- Força a cor do texto a ser visível */
-  }
-
-  th {
-    background-color: #cc0000;
-    color: white;
-  }
-
-  h2 {
-    text-align: center;
-    margin-top: 30px;
-    color: #cc0000;
-  }
-
-  a {
-    display: block;
-    text-align: center;
-    margin: 20px;
-    color: #cc0000;
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-</style>
-
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    table {
+      width: 90%;
+      margin: 30px auto;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    th {
+      background-color: #cc0000;
+      color: white;
+    }
+    h2 {
+      text-align: center;
+      margin-top: 30px;
+      color: #cc0000;
+    }
+    a {
+      display: block;
+      text-align: center;
+      margin: 20px;
+      color: #cc0000;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
   <h2>Lista de Doadores</h2>
@@ -72,6 +64,8 @@ if (file_exists($file)) {
         <th>CPF</th>
         <th>Data de Nascimento</th>
         <th>Tipo Sanguíneo</th>
+        <th>Data do Agendamento</th>
+        <th>Hora do Agendamento</th>
         <th>Data do Registro</th>
       </tr>
     </thead>
@@ -83,11 +77,13 @@ if (file_exists($file)) {
             <td><?= htmlspecialchars($doador['cpf']) ?></td>
             <td><?= htmlspecialchars($doador['data']) ?></td>
             <td><?= htmlspecialchars($doador['tipo']) ?></td>
+            <td><?= htmlspecialchars($doador['data_agendamento']) ?></td>
+            <td><?= htmlspecialchars($doador['hora_agendamento']) ?></td>
             <td><?= htmlspecialchars($doador['data_envio']) ?></td>
           </tr>
         <?php endforeach; ?>
       <?php else: ?>
-        <tr><td colspan="5">Nenhum doador cadastrado ainda.</td></tr>
+        <tr><td colspan="7">Nenhum doador cadastrado ainda.</td></tr>
       <?php endif; ?>
     </tbody>
   </table>

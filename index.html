@@ -5,11 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vida em Gotas</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .alerta-sangue {
+      background: rgba(255, 68, 68, 0.9);
+      color: white;
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: bold;
+      padding: 15px;
+      margin: 80px auto 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255,0,0,0.6);
+      max-width: 900px;
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>Vida em Gotas</h1>
   </header>
+
+  <!-- Mensagem de alerta dinâmica -->
+  <div class="alerta-sangue" id="alerta-sangue"></div>
 
   <main>
     <div class="center-container" aria-label="Conteúdo principal">
@@ -26,13 +43,23 @@
         <p class="quote">"Doar sangue é compartilhar vida."</p>
       </section>
     </div>
-
   </main>
 
-<footer>
-  <a href="doar.php"><button>Quero Doar</button></a>
-  <a href="consultar.php"><button type="button">Consultar Doadores</button></a>
-</footer>
+  <footer>
+    <a href="doar.php"><button>Quero Doar</button></a>
+    <a href="consultar.php"><button type="button">Consultar Doadores</button></a>
+  </footer>
 
+  <script>
+    // Lista de tipos sanguíneos
+    const tipos = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
+
+    // Escolhe um tipo aleatório
+    const tipoFaltando = tipos[Math.floor(Math.random() * tipos.length)];
+
+    // Exibe mensagem
+    document.getElementById("alerta-sangue").textContent =
+      `⚠️ Atenção: Estamos com falta do tipo sanguíneo ${tipoFaltando}. Doe e ajude a salvar vidas!`;
+  </script>
 </body>
 </html>
